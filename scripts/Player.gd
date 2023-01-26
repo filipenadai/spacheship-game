@@ -21,9 +21,13 @@ func _process(delta):
 	
 func shoot():
 	if Input.is_action_just_pressed("ui_accept"):
-		var laser = laser_preload.instance()
-		laser.global_position = $Shoot_Position.global_position
-		get_parent().add_child(laser)
-		print_debug('atirou')
+		if get_tree().get_nodes_in_group('LASER').size() < 3:
+			var laser = laser_preload.instance()
+			laser.global_position = $Shoot_Position.global_position
+			get_parent().add_child(laser)
 	
 	pass
+
+
+func _on_Player_area_entered(area):
+	Hud.setDamage(1)

@@ -14,6 +14,10 @@ config/name="Nave"
 run/main_scene="res://scenes/Level_One.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Hud="*res://scenes/HUD.tscn"
+
 [display]
 
 window/size/width=400
